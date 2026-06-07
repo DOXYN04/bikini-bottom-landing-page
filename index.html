@@ -1,0 +1,1446 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bikini Bottom - Dunia SpongeBob SquarePants</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts untuk nuansa kartun yang seru -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      body {
+        font-family: "Quicksand", sans-serif;
+        background: linear-gradient(
+          180deg,
+          #1ca3ec 0%,
+          #1470b1 50%,
+          #0f4c81 100%
+        );
+        overflow-x: hidden;
+      }
+      h1,
+      h2,
+      h3,
+      .cartoon-font {
+        font-family: "Fredoka", sans-serif;
+      }
+      /* Animasi mengapung untuk elemen kartun */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-15px) rotate(2deg);
+        }
+      }
+      .float-animation {
+        animation: float 4s ease-in-out infinite;
+      }
+      .float-animation-delay {
+        animation: float 5s ease-in-out infinite;
+        animation-delay: 1.5s;
+      }
+      /* Efek gelembung udara di latar belakang */
+      .bubble {
+        position: absolute;
+        bottom: -50px;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: rise 12s infinite linear;
+      }
+      .bubble::after {
+        content: "";
+        position: absolute;
+        top: 15%;
+        left: 15%;
+        width: 25%;
+        height: 25%;
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+      }
+      @keyframes rise {
+        0% {
+          transform: translateY(0) scale(0.5);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.6;
+        }
+        90% {
+          opacity: 0.6;
+        }
+        100% {
+          transform: translateY(-120vh) scale(1.2);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="text-white relative min-h-screen">
+    <!-- Kontainer Gelembung Latar Belakang -->
+    <div
+      id="bubble-container"
+      class="absolute inset-0 overflow-hidden pointer-events-none z-0"
+    ></div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header
+      class="relative z-10 w-full px-6 py-4 bg-yellow-400 text-slate-900 border-b-8 border-yellow-500 shadow-lg"
+    >
+      <div
+        class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4"
+      >
+        <div class="flex items-center gap-3">
+          <span class="text-4xl">🧽</span>
+          <span
+            class="text-3xl font-extrabold tracking-wider text-amber-900 cartoon-font uppercase"
+            >Bikini Bottom</span
+          >
+        </div>
+        <nav
+          class="flex flex-wrap justify-center gap-2 sm:gap-6 font-bold text-lg"
+        >
+          <a
+            href="#hero"
+            class="px-3 py-1.5 hover:bg-yellow-500 rounded-lg transition duration-200"
+            >Utama</a
+          >
+          <a
+            href="#characters"
+            class="px-3 py-1.5 hover:bg-yellow-500 rounded-lg transition duration-200"
+            >Karakter</a
+          >
+          <a
+            href="#krabby-patty"
+            class="px-3 py-1.5 hover:bg-yellow-500 rounded-lg transition duration-200"
+            >Dapur Krusty Krab</a
+          >
+          <a
+            href="#jellyfishing"
+            class="px-3 py-1.5 hover:bg-yellow-500 rounded-lg transition duration-200"
+            >Tangkap Ubur-Ubur</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section
+      id="hero"
+      class="relative z-10 max-w-7xl mx-auto px-6 py-12 md:py-24 flex flex-col lg:flex-row items-center justify-between gap-12"
+    >
+      <div class="lg:w-1/2 space-y-6 text-center lg:text-left">
+        <span
+          class="inline-block bg-yellow-400 text-amber-950 font-extrabold px-4 py-1.5 rounded-full text-sm uppercase tracking-widest border-2 border-yellow-600 shadow-md"
+        >
+          Kalian Siap, Anak-Anak?
+        </span>
+        <h1
+          class="text-5xl md:text-7xl font-extrabold text-yellow-300 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)] tracking-wide uppercase"
+        >
+          Selamat Datang di Bikini Bottom!
+        </h1>
+        <p class="text-lg md:text-xl text-blue-100 max-w-xl mx-auto lg:mx-0">
+          Temui SpongeBob SquarePants dan kawan-kawan di dasar Samudra Pasifik.
+          Rasakan keceriaan memasak Krabby Patty, memancing ubur-ubur, dan
+          mendengarkan kutipan lucu mereka!
+        </p>
+        <div
+          class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4"
+        >
+          <a
+            href="#krabby-patty"
+            class="bg-amber-500 hover:bg-amber-600 border-b-4 border-amber-700 text-white font-extrabold px-8 py-4 rounded-2xl text-xl shadow-lg hover:shadow-xl transition-all duration-150 text-center"
+          >
+            🍔 Buat Krabby Patty
+          </a>
+          <button
+            onclick="playSpongeBobLaugh()"
+            class="bg-yellow-400 hover:bg-yellow-500 border-b-4 border-yellow-600 text-slate-900 font-extrabold px-8 py-4 rounded-2xl text-xl shadow-lg hover:shadow-xl transition-all duration-150 flex items-center justify-center gap-2"
+          >
+            🔊 Ketawa SpongeBob
+          </button>
+        </div>
+      </div>
+
+      <!-- Maskot SpongeBob & Patrick Interaktif (Visual CSS) -->
+      <div class="lg:w-1/2 flex justify-center items-center gap-6 relative">
+        <!-- Rumah Nanas SpongeBob Visual -->
+        <div
+          class="relative w-72 h-80 bg-orange-400 rounded-t-[100px] border-8 border-orange-500 shadow-2xl flex flex-col justify-end p-6 float-animation overflow-hidden"
+        >
+          <div
+            class="absolute -top-10 left-1/2 -translate-x-1/2 text-7xl text-green-500 font-extrabold"
+          >
+            🌿
+          </div>
+          <!-- Garis menyilang nanas -->
+          <div
+            class="absolute inset-0 opacity-20 border-t-4 border-amber-950 origin-center rotate-45 scale-150"
+          ></div>
+          <div
+            class="absolute inset-0 opacity-20 border-t-4 border-amber-950 origin-center -rotate-45 scale-150"
+          ></div>
+          <!-- Jendela Bulat Kapal -->
+          <div
+            class="absolute top-1/3 left-1/2 -translate-x-1/2 w-16 h-16 bg-blue-300 border-4 border-slate-600 rounded-full flex items-center justify-center"
+          >
+            <div
+              class="w-10 h-10 bg-blue-500 rounded-full border-2 border-slate-600"
+            ></div>
+          </div>
+          <!-- Pintu Rumah -->
+          <div
+            class="w-20 h-24 bg-slate-500 border-4 border-slate-600 rounded-t-full mx-auto relative z-10"
+          >
+            <div
+              class="absolute top-1/2 right-2 w-3 h-3 bg-yellow-400 rounded-full"
+            ></div>
+          </div>
+          <span
+            class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-yellow-400 text-amber-950 px-3 py-1 rounded-full font-bold text-xs uppercase border border-amber-600"
+            >Rumah Nanas</span
+          >
+        </div>
+
+        <!-- Patrick Rock Visual -->
+        <div
+          class="relative w-48 h-48 bg-amber-800 rounded-full border-8 border-amber-900 shadow-2xl flex items-center justify-center float-animation-delay absolute -bottom-6 -right-6 lg:right-12"
+        >
+          <div class="text-center">
+            <span class="text-4xl block">🪨</span>
+            <span
+              class="bg-pink-400 text-amber-950 px-3 py-0.5 rounded-full font-bold text-xs uppercase border border-pink-600"
+              >Rumah Batu</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAPAN KUTIPAN & SOUNDBOARD -->
+    <section class="relative z-10 max-w-5xl mx-auto px-6 py-6">
+      <div
+        class="bg-sky-950/80 backdrop-blur-md rounded-3xl p-6 border-4 border-sky-400 shadow-2xl"
+      >
+        <h3
+          class="text-2xl font-bold text-center text-yellow-300 mb-4 uppercase tracking-wider"
+        >
+          📢 Papan Kutipan Bikini Bottom
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <button
+            onclick="showQuote('spongebob')"
+            class="bg-yellow-400 hover:bg-yellow-500 text-slate-900 p-4 rounded-xl font-bold flex flex-col items-center gap-2 border-b-4 border-yellow-600 transition active:scale-95"
+          >
+            <span class="text-3xl">🧽</span>
+            <span>SpongeBob SquarePants</span>
+          </button>
+          <button
+            onclick="showQuote('patrick')"
+            class="bg-pink-400 hover:bg-pink-500 text-slate-900 p-4 rounded-xl font-bold flex flex-col items-center gap-2 border-b-4 border-pink-600 transition active:scale-95"
+          >
+            <span class="text-3xl">⭐</span>
+            <span>Patrick Star</span>
+          </button>
+          <button
+            onclick="showQuote('squidward')"
+            class="bg-teal-400 hover:bg-teal-500 text-slate-900 p-4 rounded-xl font-bold flex flex-col items-center gap-2 border-b-4 border-teal-600 transition active:scale-95"
+          >
+            <span class="text-3xl">🐙</span>
+            <span>Squidward Tentacles</span>
+          </button>
+        </div>
+
+        <!-- Area Tampilan Kutipan -->
+        <div
+          id="quote-box"
+          class="mt-6 p-4 bg-blue-900/50 rounded-2xl border-2 border-blue-400/50 text-center min-h-[80px] flex flex-col justify-center items-center"
+        >
+          <p
+            id="quote-text"
+            class="text-lg md:text-xl italic font-semibold text-yellow-100"
+          >
+            "Pencet tombol di atas untuk mendengar kutipan bijak/konyol kami!"
+          </p>
+          <span
+            id="quote-author"
+            class="text-sm text-yellow-400 font-bold mt-2"
+          ></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CHARACTERS SECTION -->
+    <section id="characters" class="relative z-10 max-w-7xl mx-auto px-6 py-16">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h2
+          class="text-4xl md:text-5xl font-extrabold text-yellow-300 drop-shadow-md uppercase tracking-wide"
+        >
+          Penduduk Bikini Bottom
+        </h2>
+        <p class="text-blue-100 mt-2">
+          Ketuk karakter untuk melihat statistik unik mereka!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Karakter 1: SpongeBob -->
+        <div
+          onclick="
+            openCharacterModal(
+              'SpongeBob SquarePants',
+              'Spons kuning yang ramah, selalu ceria, dan bekerja sebagai koki di Krusty Krab. Sangat mencintai pekerjaannya membalik Krabby Patty.',
+              '99%',
+              '100%',
+              '10%',
+              '🧽',
+              'Nanas di Jalan Keong No. 124',
+            )
+          "
+          class="group bg-yellow-400 hover:bg-yellow-300 text-slate-900 rounded-3xl p-6 border-8 border-yellow-500 shadow-xl cursor-pointer transform hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center"
+        >
+          <span class="text-7xl group-hover:scale-110 transition duration-300"
+            >🧽</span
+          >
+          <h3 class="text-2xl font-extrabold mt-4 text-amber-950 uppercase">
+            SpongeBob
+          </h3>
+          <p class="text-amber-900 font-semibold mt-1">
+            Koki Utama Krusty Krab
+          </p>
+          <div
+            class="w-full bg-yellow-600/20 rounded-full h-3 mt-4 overflow-hidden"
+          >
+            <div
+              class="bg-amber-950 h-full rounded-full"
+              style="width: 100%"
+            ></div>
+          </div>
+          <div
+            class="flex justify-between w-full text-xs font-bold text-amber-900 mt-1"
+          >
+            <span>Keceriaan</span>
+            <span>100%</span>
+          </div>
+        </div>
+
+        <!-- Karakter 2: Patrick Star -->
+        <div
+          onclick="
+            openCharacterModal(
+              'Patrick Star',
+              'Bintang laut berwarna merah muda yang merupakan sahabat sejati SpongeBob. Menghabiskan sebagian besar waktunya tidur di bawah batu dan makan es krim.',
+              '10%',
+              '95%',
+              '5%',
+              '⭐',
+              'Batu di sebelah rumah Squidward',
+            )
+          "
+          class="group bg-pink-400 hover:bg-pink-300 text-slate-900 rounded-3xl p-6 border-8 border-pink-500 shadow-xl cursor-pointer transform hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center"
+        >
+          <span class="text-7xl group-hover:scale-110 transition duration-300"
+            >⭐</span
+          >
+          <h3 class="text-2xl font-extrabold mt-4 text-pink-950 uppercase">
+            Patrick Star
+          </h3>
+          <p class="text-pink-900 font-semibold mt-1">
+            Ahli Rebahan Profesional
+          </p>
+          <div
+            class="w-full bg-pink-600/20 rounded-full h-3 mt-4 overflow-hidden"
+          >
+            <div
+              class="bg-pink-950 h-full rounded-full"
+              style="width: 95%"
+            ></div>
+          </div>
+          <div
+            class="flex justify-between w-full text-xs font-bold text-pink-900 mt-1"
+          >
+            <span>Kemalasan</span>
+            <span>95%</span>
+          </div>
+        </div>
+
+        <!-- Karakter 3: Squidward Tentacles -->
+        <div
+          onclick="
+            openCharacterModal(
+              'Squidward Tentacles',
+              'Tetangga SpongeBob yang pemarah dan bermain klarinet (meskipun terdengar buruk). Bekerja sebagai kasir di Krusty Krab dan membenci segala hal yang menyenangkan.',
+              '75%',
+              '5%',
+              '99%',
+              '🐙',
+              'Rumah Kepala Pulau Paskah',
+            )
+          "
+          class="group bg-teal-400 hover:bg-teal-300 text-slate-900 rounded-3xl p-6 border-8 border-teal-500 shadow-xl cursor-pointer transform hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center"
+        >
+          <span class="text-7xl group-hover:scale-110 transition duration-300"
+            >🐙</span
+          >
+          <h3 class="text-2xl font-extrabold mt-4 text-teal-950 uppercase">
+            Squidward
+          </h3>
+          <p class="text-teal-900 font-semibold mt-1">
+            Pemain Klarinet & Kasir
+          </p>
+          <div
+            class="w-full bg-teal-600/20 rounded-full h-3 mt-4 overflow-hidden"
+          >
+            <div
+              class="bg-teal-950 h-full rounded-full"
+              style="width: 99%"
+            ></div>
+          </div>
+          <div
+            class="flex justify-between w-full text-xs font-bold text-teal-900 mt-1"
+          >
+            <span>Kegusaran</span>
+            <span>99%</span>
+          </div>
+        </div>
+
+        <!-- Karakter 4: Sandy Cheeks -->
+        <div
+          onclick="
+            openCharacterModal(
+              'Sandy Cheeks',
+              'Tupai darat tangguh dari Texas yang tinggal di kubah kedap udara. Dia adalah seorang ilmuwan jenius dan ahli karate yang menyukai petualangan ekstrim.',
+              '90%',
+              '85%',
+              '5%',
+              '🐿️',
+              'Kubah Pohon Kedap Udara',
+            )
+          "
+          class="group bg-amber-100 hover:bg-white text-slate-900 rounded-3xl p-6 border-8 border-amber-300 shadow-xl cursor-pointer transform hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center"
+        >
+          <span class="text-7xl group-hover:scale-110 transition duration-300"
+            >🐿️</span
+          >
+          <h3 class="text-2xl font-extrabold mt-4 text-amber-950 uppercase">
+            Sandy Cheeks
+          </h3>
+          <p class="text-amber-900 font-semibold mt-1">
+            Ilmuwan & Master Karate
+          </p>
+          <div
+            class="w-full bg-amber-600/20 rounded-full h-3 mt-4 overflow-hidden"
+          >
+            <div
+              class="bg-amber-950 h-full rounded-full"
+              style="width: 95%"
+            ></div>
+          </div>
+          <div
+            class="flex justify-between w-full text-xs font-bold text-amber-900 mt-1"
+          >
+            <span>Kekuatan Karate</span>
+            <span>95%</span>
+          </div>
+        </div>
+
+        <!-- Karakter 5: Mr. Krabs -->
+        <div
+          onclick="
+            openCharacterModal(
+              'Eugene H. Krabs',
+              'Pemilik restoran Krusty Krab yang sangat kikir dan mencintai uang di atas segalanya. Penemu resep rahasia Krabby Patty yang sangat berharga.',
+              '40%',
+              '30%',
+              '80%',
+              '🦀',
+              'Rumah Jangkar Raksasa',
+            )
+          "
+          class="group bg-red-500 hover:bg-red-400 text-slate-900 rounded-3xl p-6 border-8 border-red-600 shadow-xl cursor-pointer transform hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center"
+        >
+          <span class="text-7xl group-hover:scale-110 transition duration-300"
+            >🦀</span
+          >
+          <h3 class="text-2xl font-extrabold mt-4 text-red-950 uppercase">
+            Tuan Krabs
+          </h3>
+          <p class="text-red-900 font-semibold mt-1">Bos Krusty Krab</p>
+          <div
+            class="w-full bg-red-600/20 rounded-full h-3 mt-4 overflow-hidden"
+          >
+            <div
+              class="bg-red-950 h-full rounded-full"
+              style="width: 100%"
+            ></div>
+          </div>
+          <div
+            class="flex justify-between w-full text-xs font-bold text-red-900 mt-1"
+          >
+            <span>Kecintaan Uang</span>
+            <span>100%</span>
+          </div>
+        </div>
+
+        <!-- Karakter 6: Plankton -->
+        <div
+          onclick="
+            openCharacterModal(
+              'Sheldon J. Plankton',
+              'Musuh bebuyutan Tuan Krabs yang memiliki restoran Chum Bucket. Terobsesi seumur hidup untuk mencuri resep rahasia Krabby Patty.',
+              '80%',
+              '15%',
+              '95%',
+              '🦠',
+              'Restoran Chum Bucket',
+            )
+          "
+          class="group bg-emerald-600 hover:bg-emerald-500 text-slate-900 rounded-3xl p-6 border-8 border-emerald-700 shadow-xl cursor-pointer transform hover:-translate-y-2 transition-all duration-300 flex flex-col items-center text-center"
+        >
+          <span class="text-7xl group-hover:scale-110 transition duration-300"
+            >🦠</span
+          >
+          <h3 class="text-2xl font-extrabold mt-4 text-emerald-950 uppercase">
+            Plankton
+          </h3>
+          <p class="text-emerald-900 font-semibold mt-1">Pemilik Chum Bucket</p>
+          <div
+            class="w-full bg-emerald-600/20 rounded-full h-3 mt-4 overflow-hidden"
+          >
+            <div
+              class="bg-emerald-950 h-full rounded-full"
+              style="width: 90%"
+            ></div>
+          </div>
+          <div
+            class="flex justify-between w-full text-xs font-bold text-emerald-900 mt-1"
+          >
+            <span>Kejahatan Jenius</span>
+            <span>90%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: DAPUR KRUSTY KRAB (Interactive Krabby Patty Maker) -->
+    <section
+      id="krabby-patty"
+      class="relative z-10 max-w-5xl mx-auto px-6 py-12"
+    >
+      <div
+        class="bg-amber-100 rounded-3xl border-8 border-amber-600 text-slate-900 p-8 shadow-2xl"
+      >
+        <div class="text-center mb-8">
+          <span class="text-5xl">🍔</span>
+          <h2
+            class="text-3xl md:text-4xl font-extrabold text-amber-800 uppercase mt-2"
+          >
+            Dapur Pembuat Krabby Patty
+          </h2>
+          <p class="text-amber-950 font-semibold mt-1">
+            Buat burger legendaris karyamu sendiri di sini!
+          </p>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8 items-center">
+          <!-- Sisi Kiri: Bahan Pilihan -->
+          <div class="w-full lg:w-1/2 space-y-3">
+            <h3
+              class="text-xl font-bold text-amber-900 mb-2 border-b-2 border-amber-300 pb-1"
+            >
+              📋 Bahan-bahan:
+            </h3>
+
+            <div class="grid grid-cols-2 gap-2">
+              <button
+                onclick="toggleIngredient('bun-top')"
+                id="btn-bun-top"
+                class="py-2.5 px-4 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl shadow border-b-4 border-amber-700 flex items-center gap-2 justify-center transition active:translate-y-1"
+              >
+                <span>🍞</span> Roti Atas
+              </button>
+              <button
+                onclick="toggleIngredient('lettuce')"
+                id="btn-lettuce"
+                class="py-2.5 px-4 bg-emerald-500 hover:bg-emerald-600 text-white font-bold rounded-xl shadow border-b-4 border-emerald-700 flex items-center gap-2 justify-center transition active:translate-y-1"
+              >
+                <span>🥬</span> Selada Segar
+              </button>
+              <button
+                onclick="toggleIngredient('tomato')"
+                id="btn-tomato"
+                class="py-2.5 px-4 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl shadow border-b-4 border-red-700 flex items-center gap-2 justify-center transition active:translate-y-1"
+              >
+                <span>🍅</span> Tomat Merah
+              </button>
+              <button
+                onclick="toggleIngredient('cheese')"
+                id="btn-cheese"
+                class="py-2.5 px-4 bg-yellow-400 hover:bg-yellow-500 text-amber-950 font-bold rounded-xl shadow border-b-4 border-yellow-600 flex items-center gap-2 justify-center transition active:translate-y-1"
+              >
+                <span>🧀</span> Keju Leleh
+              </button>
+              <button
+                onclick="toggleIngredient('patty')"
+                id="btn-patty"
+                class="py-2.5 px-4 bg-amber-800 hover:bg-amber-900 text-white font-bold rounded-xl shadow border-b-4 border-amber-950 flex items-center gap-2 justify-center transition active:translate-y-1"
+              >
+                <span>🥩</span> Daging Patty
+              </button>
+              <button
+                onclick="toggleIngredient('pickle')"
+                id="btn-pickle"
+                class="py-2.5 px-4 bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl shadow border-b-4 border-green-800 flex items-center gap-2 justify-center transition active:translate-y-1"
+              >
+                <span>🥒</span> Acar Gurih
+              </button>
+              <button
+                onclick="toggleIngredient('onion')"
+                id="btn-onion"
+                class="py-2.5 px-4 bg-purple-300 hover:bg-purple-400 text-purple-950 font-bold rounded-xl shadow border-b-4 border-purple-500 flex items-center gap-2 justify-center transition active:translate-y-1"
+              >
+                <span>🧅</span> Bawang Bombai
+              </button>
+              <button
+                onclick="toggleIngredient('bun-bottom')"
+                id="btn-bun-bottom"
+                class="py-2.5 px-4 bg-amber-600 hover:bg-amber-700 text-white font-bold rounded-xl shadow border-b-4 border-amber-800 flex items-center gap-2 justify-center transition active:translate-y-1"
+              >
+                <span>🍞</span> Roti Bawah
+              </button>
+            </div>
+
+            <div class="pt-4 flex gap-2">
+              <button
+                onclick="servePatty()"
+                class="w-2/3 bg-emerald-600 hover:bg-emerald-700 text-white border-b-4 border-emerald-800 font-extrabold py-3 px-4 rounded-xl text-lg flex items-center justify-center gap-2 shadow-lg transition duration-150"
+              >
+                🛎️ Sajikan ke Tuan Krabs!
+              </button>
+              <button
+                onclick="resetPatty()"
+                class="w-1/3 bg-gray-500 hover:bg-gray-600 text-white border-b-4 border-gray-700 font-extrabold py-3 px-4 rounded-xl text-lg shadow-lg transition duration-150"
+              >
+                🧹 Reset
+              </button>
+            </div>
+          </div>
+
+          <!-- Sisi Kanan: Visualisasi Tumpukan Burger -->
+          <div
+            class="w-full lg:w-1/2 flex flex-col items-center justify-center bg-sky-200/50 rounded-2xl p-6 border-4 border-dashed border-sky-400 min-h-[350px] relative"
+          >
+            <div
+              id="burger-visualizer"
+              class="flex flex-col-reverse items-center justify-center space-y-[-10px] w-full max-w-[280px]"
+            >
+              <!-- Elemen bahan-bahan burger akan muncul di sini secara dinamis -->
+              <div
+                id="empty-burger-msg"
+                class="text-center py-12 text-sky-800 font-bold"
+              >
+                <span class="text-4xl block animate-bounce">🧑‍🍳</span>
+                <span class="block mt-2"
+                  >Dapur masih kosong. Klik bahan di sebelah kiri untuk mulai
+                  menumpuk!</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: MINI GAME TANGKAP UBUR-UBUR (Jellyfishing Game) -->
+    <section
+      id="jellyfishing"
+      class="relative z-10 max-w-5xl mx-auto px-6 py-12"
+    >
+      <div
+        class="bg-indigo-950/90 backdrop-blur-md rounded-3xl p-8 border-8 border-indigo-400 text-white shadow-2xl"
+      >
+        <div class="text-center mb-6">
+          <span class="text-5xl">🪼</span>
+          <h2
+            class="text-3xl md:text-4xl font-extrabold text-indigo-300 uppercase mt-2"
+          >
+            Tangkap Ubur-Ubur!
+          </h2>
+          <p class="text-indigo-200 font-semibold">
+            Bantu SpongeBob mengumpulkan ubur-ubur sebanyak mungkin dalam 30
+            detik!
+          </p>
+        </div>
+
+        <!-- Tampilan Skor & Waktu -->
+        <div
+          class="flex justify-between items-center bg-indigo-900/50 rounded-2xl p-4 border border-indigo-400/30 mb-4 max-w-md mx-auto"
+        >
+          <div class="text-center px-4">
+            <span class="text-sm text-indigo-300 block font-bold uppercase"
+              >Skor</span
+            >
+            <span
+              id="game-score"
+              class="text-3xl font-extrabold text-yellow-300"
+              >0</span
+            >
+          </div>
+          <div class="text-center px-4 border-l border-indigo-800">
+            <span class="text-sm text-indigo-300 block font-bold uppercase"
+              >Sisa Waktu</span
+            >
+            <span id="game-timer" class="text-3xl font-extrabold text-red-400"
+              >30s</span
+            >
+          </div>
+          <div class="text-center px-4 border-l border-indigo-800">
+            <span class="text-sm text-indigo-300 block font-bold uppercase"
+              >Terbaik</span
+            >
+            <span
+              id="game-highscore"
+              class="text-3xl font-extrabold text-green-300"
+              >0</span
+            >
+          </div>
+        </div>
+
+        <!-- Area Permainan -->
+        <div
+          id="game-area"
+          class="relative w-full h-[400px] bg-gradient-to-b from-blue-900 to-indigo-950 rounded-2xl border-4 border-indigo-500 overflow-hidden cursor-crosshair"
+        >
+          <!-- Tombol Start Game -->
+          <div
+            id="game-start-screen"
+            class="absolute inset-0 bg-black/75 flex flex-col items-center justify-center p-6 text-center z-20"
+          >
+            <span class="text-6xl animate-bounce mb-2">🪼</span>
+            <h3 class="text-2xl font-extrabold text-yellow-300 uppercase">
+              Siap Untuk Jellyfishing?
+            </h3>
+            <p class="text-gray-300 max-w-sm mt-1 mb-6 text-sm">
+              Klik atau ketuk ubur-ubur merah muda yang melayang secepat mungkin
+              sebelum menghilang!
+            </p>
+            <button
+              onclick="startGame()"
+              class="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-extrabold px-8 py-3 rounded-2xl text-lg shadow-lg border-b-4 border-yellow-600 transition active:scale-95"
+            >
+              Mulai Tangkap!
+            </button>
+          </div>
+
+          <!-- Kontainer Ubur-ubur dinamis -->
+          <div
+            id="jellyfish-container"
+            class="absolute inset-0 z-10 pointer-events-auto"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+      class="relative z-10 bg-slate-900 border-t-8 border-yellow-400 py-12 text-center text-gray-400"
+    >
+      <div class="max-w-7xl mx-auto px-6 space-y-4">
+        <div class="flex justify-center gap-6 text-2xl text-yellow-400">
+          <a href="#" class="hover:scale-120 transition"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" class="hover:scale-120 transition"
+            ><i class="fab fa-youtube"></i
+          ></a>
+          <a href="#" class="hover:scale-120 transition"
+            ><i class="fab fa-twitter"></i
+          ></a>
+        </div>
+        <p class="font-bold text-lg text-yellow-300">
+          🍍 Dibuat dengan penuh keceriaan di Bikini Bottom 🍍
+        </p>
+        <p class="text-xs text-gray-500">
+          © 2026 Bikini Bottom Fansite. Hak Cipta Dilindungi Undang-Undang.
+          Semua referensi karakter milik Nickelodeon.
+        </p>
+      </div>
+    </footer>
+
+    <!-- MODAL POPUP UNTUK DETAIL KARAKTER (Custom Modal, Tanpa Browser Alert) -->
+    <div
+      id="character-modal"
+      class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-6 hidden"
+    >
+      <div
+        class="bg-amber-100 border-8 border-amber-500 text-slate-900 rounded-3xl max-w-lg w-full p-6 shadow-2xl relative animate-scaleUp"
+      >
+        <button
+          onclick="closeCharacterModal()"
+          class="absolute -top-4 -right-4 bg-red-500 hover:bg-red-600 border-2 border-white text-white w-10 h-10 rounded-full font-bold flex items-center justify-center shadow-lg transition active:scale-90"
+        >
+          ✕
+        </button>
+        <div class="text-center">
+          <span id="modal-char-avatar" class="text-8xl block float-animation"
+            >👤</span
+          >
+          <h3
+            id="modal-char-name"
+            class="text-3xl font-extrabold text-amber-950 uppercase mt-2"
+          >
+            Nama Karakter
+          </h3>
+          <span
+            id="modal-char-address"
+            class="inline-block bg-amber-200 text-amber-900 text-xs font-bold px-3 py-1 rounded-full mt-1 border border-amber-300"
+            >Alamat Rumah</span
+          >
+
+          <p
+            id="modal-char-desc"
+            class="text-amber-900 mt-4 leading-relaxed font-semibold"
+          >
+            Deskripsi lengkap mengenai karakter Bikini Bottom ini akan tampil di
+            sini.
+          </p>
+
+          <!-- Atribut/Statistik unik -->
+          <div
+            class="mt-6 space-y-3 bg-amber-50 rounded-2xl p-4 border border-amber-300"
+          >
+            <div>
+              <div
+                class="flex justify-between text-xs font-bold text-amber-900 mb-1"
+              >
+                <span>Sifat Baik / Keceriaan</span>
+                <span id="modal-stat-good">0%</span>
+              </div>
+              <div
+                class="w-full bg-amber-200 rounded-full h-2.5 overflow-hidden"
+              >
+                <div
+                  id="modal-bar-good"
+                  class="bg-emerald-500 h-full rounded-full"
+                  style="width: 50%"
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div
+                class="flex justify-between text-xs font-bold text-amber-900 mb-1"
+              >
+                <span>Kekonyolan / Kelucuan</span>
+                <span id="modal-stat-silly">0%</span>
+              </div>
+              <div
+                class="w-full bg-amber-200 rounded-full h-2.5 overflow-hidden"
+              >
+                <div
+                  id="modal-bar-silly"
+                  class="bg-yellow-500 h-full rounded-full"
+                  style="width: 50%"
+                ></div>
+              </div>
+            </div>
+            <div>
+              <div
+                class="flex justify-between text-xs font-bold text-amber-900 mb-1"
+              >
+                <span>Kegusaran / Kemarahan</span>
+                <span id="modal-stat-angry">0%</span>
+              </div>
+              <div
+                class="w-full bg-amber-200 rounded-full h-2.5 overflow-hidden"
+              >
+                <div
+                  id="modal-bar-angry"
+                  class="bg-red-500 h-full rounded-full"
+                  style="width: 50%"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            onclick="closeCharacterModal()"
+            class="mt-6 w-full bg-amber-600 hover:bg-amber-700 text-white font-extrabold py-3 px-4 rounded-xl border-b-4 border-amber-800 transition active:translate-y-1"
+          >
+            Tutup Pintu Rumah!
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL POPUP PENILAIAN KRABBY PATTY -->
+    <div
+      id="krabby-modal"
+      class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-6 hidden"
+    >
+      <div
+        class="bg-amber-100 border-8 border-yellow-500 text-slate-900 rounded-3xl max-w-md w-full p-6 shadow-2xl relative text-center"
+      >
+        <span class="text-7xl block">🦀</span>
+        <h3 class="text-2xl font-extrabold text-amber-950 uppercase mt-2">
+          Penilaian Tuan Krabs
+        </h3>
+
+        <div id="krabby-rating-stars" class="text-yellow-500 text-3xl my-3">
+          ⭐⭐⭐⭐⭐
+        </div>
+
+        <p
+          id="krabby-feedback"
+          class="text-amber-900 font-semibold text-lg italic my-4"
+        >
+          "Krabby Patty buatanmu sungguh luar biasa nak! Ini bisa mendatangkan
+          banyak keuntungan!"
+        </p>
+
+        <button
+          onclick="closeKrabbyModal()"
+          class="w-full bg-yellow-500 hover:bg-yellow-600 text-slate-900 font-extrabold py-3 px-4 rounded-xl border-b-4 border-yellow-700 transition active:translate-y-1"
+        >
+          Terima Kasih, Tuan Krabs!
+        </button>
+      </div>
+    </div>
+
+    <!-- SOUND & ENGINE INTERACTIVE SCRIPT -->
+    <script>
+      // ----------------------------------------------------
+      // AUDIO SYNTHESIZER (Sintesis Suara Menggunakan Web Audio API)
+      // ----------------------------------------------------
+      let audioCtx = null;
+
+      function getAudioContext() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === "suspended") {
+          audioCtx.resume();
+        }
+        return audioCtx;
+      }
+
+      // Efek Suara Gelembung Pecah
+      function playBubbleSound() {
+        try {
+          const ctx = getAudioContext();
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.type = "sine";
+          // Frekuensi naik cepat (efek pop)
+          osc.frequency.setValueAtTime(150, ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(
+            800,
+            ctx.currentTime + 0.15,
+          );
+
+          gain.gain.setValueAtTime(0.3, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.15);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start();
+          osc.stop(ctx.currentTime + 0.16);
+        } catch (e) {
+          console.log("Audio not supported yet.");
+        }
+      }
+
+      // Efek Suara Ketawa Khas SpongeBob (Nada Cepat Naik Turun)
+      function playSpongeBobLaugh() {
+        try {
+          const ctx = getAudioContext();
+          const now = ctx.currentTime;
+
+          // Urutan nada mirip tertawa
+          const notes = [400, 600, 450, 650, 400, 600, 450, 650, 500, 700];
+          notes.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+
+            osc.type = "triangle";
+            osc.frequency.setValueAtTime(freq, now + idx * 0.12);
+
+            gain.gain.setValueAtTime(0.2, now + idx * 0.12);
+            gain.gain.exponentialRampToValueAtTime(
+              0.01,
+              now + idx * 0.12 + 0.1,
+            );
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc.start(now + idx * 0.12);
+            osc.stop(now + idx * 0.12 + 0.11);
+          });
+        } catch (e) {
+          console.log("Audio Error");
+        }
+      }
+
+      // Efek Suara Sajikan Krabby Patty (Bel Koki Ting!)
+      function playChimeSound() {
+        try {
+          const ctx = getAudioContext();
+          const now = ctx.currentTime;
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(1200, now);
+          osc.frequency.setValueAtTime(1500, now + 0.05);
+
+          gain.gain.setValueAtTime(0.25, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+
+          osc.start();
+          osc.stop(now + 0.8);
+        } catch (e) {}
+      }
+
+      // ----------------------------------------------------
+      // FLOATING BUBBLES GENERATOR
+      // ----------------------------------------------------
+      const bubbleContainer = document.getElementById("bubble-container");
+
+      function createBubble() {
+        const bubble = document.createElement("div");
+        bubble.classList.add("bubble");
+
+        // Aturan acak ukuran & letak gelembung
+        const size = Math.random() * 40 + 10; // 10px sampai 50px
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        bubble.style.left = `${Math.random() * 100}%`;
+
+        // Kecepatan melayang acak
+        const duration = Math.random() * 6 + 6; // 6s sampai 12s
+        bubble.style.animationDuration = `${duration}s`;
+
+        bubbleContainer.appendChild(bubble);
+
+        // Hapus gelembung setelah animasi selesai
+        setTimeout(() => {
+          bubble.remove();
+        }, duration * 1000);
+      }
+
+      // Terus buat gelembung setiap setengah detik
+      setInterval(createBubble, 600);
+
+      // ----------------------------------------------------
+      // KUTIPAN BIJAK BIKINI BOTTOM (Soundboard)
+      // ----------------------------------------------------
+      const quotes = {
+        spongebob: [
+          "Aku siap! Aku siap! Aku siap!",
+          "Jika kamu percaya pada dirimu sendiri, segala hal mungkin terjadi.",
+          "Satu hal yang aku tahu pasti tentang persahabatan, kita tidak pernah menyerah.",
+          "Pakaian terbaik adalah senyuman di wajahmu!",
+        ],
+        patrick: [
+          "Pemujaan yang berlebihan itu tidak sehat.",
+          "Aku tidak mengerti apa-apa, tapi aku senang bisa berada di sini.",
+          "Pengetahuan tidak bisa menggantikan persahabatan. Aku lebih memilih jadi idiot daripada kehilanganmu.",
+          "Hidup ini memang tidak adil, jadi biasakanlah dirimu!",
+        ],
+        squidward: [
+          "Apakah di dunia ini tidak ada orang yang normal?",
+          "Aku benci semua orang.",
+          "Seni tidak diciptakan untuk dimengerti, seni ada untuk dikagumi.",
+          "Silakan kembali lagi nanti saat saya tidak sedang bernapas.",
+        ],
+      };
+
+      function showQuote(character) {
+        playBubbleSound();
+        const characterQuotes = quotes[character];
+        const randomIndex = Math.floor(Math.random() * characterQuotes.length);
+        const quoteText = document.getElementById("quote-text");
+        const quoteAuthor = document.getElementById("quote-author");
+
+        quoteText.textContent = `"${characterQuotes[randomIndex]}"`;
+
+        if (character === "spongebob") {
+          quoteAuthor.textContent = "— SpongeBob SquarePants";
+          quoteAuthor.className = "text-sm text-yellow-400 font-bold mt-2";
+        } else if (character === "patrick") {
+          quoteAuthor.textContent = "— Patrick Star";
+          quoteAuthor.className = "text-sm text-pink-400 font-bold mt-2";
+        } else if (character === "squidward") {
+          quoteAuthor.textContent = "— Squidward Tentacles";
+          quoteAuthor.className = "text-sm text-teal-400 font-bold mt-2";
+        }
+      }
+
+      // ----------------------------------------------------
+      // MODAL DETAIL KARAKTER
+      // ----------------------------------------------------
+      function openCharacterModal(
+        name,
+        desc,
+        good,
+        silly,
+        angry,
+        avatar,
+        address,
+      ) {
+        playBubbleSound();
+        document.getElementById("modal-char-name").textContent = name;
+        document.getElementById("modal-char-desc").textContent = desc;
+        document.getElementById("modal-char-address").textContent =
+          `🏡 Alamat: ${address}`;
+        document.getElementById("modal-char-avatar").textContent = avatar;
+
+        document.getElementById("modal-stat-good").textContent = good;
+        document.getElementById("modal-bar-good").style.width = good;
+
+        document.getElementById("modal-stat-silly").textContent = silly;
+        document.getElementById("modal-bar-silly").style.width = silly;
+
+        document.getElementById("modal-stat-angry").textContent = angry;
+        document.getElementById("modal-bar-angry").style.width = angry;
+
+        document.getElementById("character-modal").classList.remove("hidden");
+      }
+
+      function closeCharacterModal() {
+        playBubbleSound();
+        document.getElementById("character-modal").classList.add("hidden");
+      }
+
+      // ----------------------------------------------------
+      // SIMULATOR KRABBY PATTY
+      // ----------------------------------------------------
+      // Struktur tumpukan bahan burger yang aktif
+      let activeIngredients = [];
+
+      // Definisi Visual CSS & Nama Bahasa Indonesia untuk tiap bahan
+      const ingredientProps = {
+        "bun-top": {
+          label: "Roti Atas",
+          class:
+            "h-10 bg-amber-500 rounded-t-full border-2 border-amber-600 shadow-md w-full max-w-[200px]",
+        },
+        lettuce: {
+          label: "Selada",
+          class:
+            "h-4 bg-emerald-500 rounded-full border-b-2 border-emerald-600 w-full max-w-[195px]",
+        },
+        tomato: {
+          label: "Tomat",
+          class:
+            "h-5 bg-red-500 rounded-xl border-b-2 border-red-600 w-full max-w-[185px]",
+        },
+        cheese: {
+          label: "Keju",
+          class:
+            "h-3 bg-yellow-400 rounded-sm border-b-2 border-yellow-500 w-full max-w-[190px]",
+        },
+        patty: {
+          label: "Daging Patty",
+          class:
+            "h-8 bg-amber-800 rounded-2xl border-2 border-amber-950 shadow w-full max-w-[190px]",
+        },
+        pickle: {
+          label: "Acar",
+          class:
+            "h-3 bg-green-600 rounded-full border-b-2 border-green-700 w-16 mx-2 inline-block",
+        },
+        onion: {
+          label: "Bawang",
+          class:
+            "h-3 bg-purple-300 rounded-full border-b-2 border-purple-400 w-full max-w-[170px]",
+        },
+        "bun-bottom": {
+          label: "Roti Bawah",
+          class:
+            "h-8 bg-amber-600 rounded-b-xl border-2 border-amber-700 shadow w-full max-w-[195px]",
+        },
+      };
+
+      function toggleIngredient(id) {
+        playBubbleSound();
+        const index = activeIngredients.indexOf(id);
+        const btn = document.getElementById(`btn-${id}`);
+
+        if (index > -1) {
+          // Hapus jika sudah ada
+          activeIngredients.splice(index, 1);
+          btn.classList.remove("ring-4", "ring-blue-400");
+        } else {
+          // Tambahkan jika belum ada
+          activeIngredients.push(id);
+          btn.classList.add("ring-4", "ring-blue-400");
+        }
+
+        renderBurger();
+      }
+
+      function renderBurger() {
+        const visualizer = document.getElementById("burger-visualizer");
+        const emptyMsg = document.getElementById("empty-burger-msg");
+
+        // Bersihkan tampilan visual lama
+        visualizer.innerHTML = "";
+
+        if (activeIngredients.length === 0) {
+          emptyMsg.style.display = "block";
+          visualizer.appendChild(emptyMsg);
+          return;
+        } else {
+          emptyMsg.style.display = "none";
+        }
+
+        // Rendertumpukan bahan-bahan secara berurutan
+        activeIngredients.forEach((item) => {
+          const element = document.createElement("div");
+          element.className = `${ingredientProps[item].class} flex items-center justify-center text-xs font-bold text-black/50 overflow-hidden transform hover:scale-105 transition-all`;
+
+          // Tambah tulisan label bahan jika muat
+          if (item !== "pickle") {
+            element.textContent = ingredientProps[item].label;
+          } else {
+            element.textContent = "🥒";
+          }
+
+          visualizer.appendChild(element);
+        });
+      }
+
+      function resetPatty() {
+        playBubbleSound();
+        activeIngredients = [];
+        // Hilangkan highlight semua tombol
+        Object.keys(ingredientProps).forEach((id) => {
+          document
+            .getElementById(`btn-${id}`)
+            .classList.remove("ring-4", "ring-blue-400");
+        });
+        renderBurger();
+      }
+
+      function servePatty() {
+        if (activeIngredients.length === 0) {
+          // Gunakan modal umpan balik sederhana sebagai pengganti alert
+          showFeedbackModal(
+            "Kosong!",
+            "Kamu tidak bisa menyajikan piring kosong ke Tuan Krabs, Nak!",
+            "⭐",
+            "Aduh!",
+          );
+          return;
+        }
+
+        playChimeSound();
+
+        // Kalkulasi skor berdasarkan struktur burger
+        let stars = "⭐⭐★★★";
+        let feedback =
+          "Ini lumayan, tapi apakah kamu lupa beberapa resep rahasianya?";
+
+        // Cek kecocokan resep legendaris Krabby Patty
+        // Susunan ideal: bun-bottom, patty, cheese, onion, tomato, pickle, lettuce, bun-top
+        const hasBunBottom = activeIngredients.includes("bun-bottom");
+        const hasBunTop = activeIngredients.includes("bun-top");
+        const hasPatty = activeIngredients.includes("patty");
+        const hasCheese = activeIngredients.includes("cheese");
+        const totalIngredients = activeIngredients.length;
+
+        if (
+          hasBunBottom &&
+          hasBunTop &&
+          hasPatty &&
+          hasCheese &&
+          totalIngredients >= 6
+        ) {
+          stars = "⭐⭐⭐⭐⭐";
+          feedback =
+            '"DEMI DEWA NEPTUNUS! Ini adalah Krabby Patty terlezat yang pernah aku makan! Kamu pantas mendapatkan bonus (tanpa uang tunai)!"';
+        } else if (hasBunBottom && hasBunTop && hasPatty) {
+          stars = "⭐⭐⭐⭐★";
+          feedback =
+            '"Kerja bagus Nak! Burgernya enak dan lezat, tapi masih kurang sedikit keju leleh di dalamnya!"';
+        } else if (!hasPatty) {
+          stars = "⭐★★★★";
+          feedback =
+            '"Burgermu tidak memiliki daging patty?! Di mana dagingnya?! Pelanggan akan marah!"';
+        } else {
+          stars = "⭐⭐★★★";
+          feedback =
+            '"Hmm, burger ini agak aneh bentuknya. Tapi baunya cukup enak untuk dijual!"';
+        }
+
+        // Tampilkan modal feedback Tuan Krabs
+        document.getElementById("krabby-rating-stars").textContent = stars;
+        document.getElementById("krabby-feedback").textContent = feedback;
+        document.getElementById("krabby-modal").classList.remove("hidden");
+      }
+
+      function showFeedbackModal(title, text, stars, buttonText) {
+        document.getElementById("krabby-rating-stars").textContent = stars;
+        document.getElementById("krabby-feedback").textContent = `"${text}"`;
+        document.getElementById("krabby-modal").classList.remove("hidden");
+      }
+
+      function closeKrabbyModal() {
+        playBubbleSound();
+        document.getElementById("krabby-modal").classList.add("hidden");
+      }
+
+      // ----------------------------------------------------
+      // MINI GAME TANGKAP UBUR-UBUR
+      // ----------------------------------------------------
+      let gameActive = false;
+      let score = 0;
+      let highscore = 0;
+      let timeLeft = 30;
+      let gameInterval = null;
+      let spawnInterval = null;
+
+      function startGame() {
+        getAudioContext(); // Aktifkan audio context
+        gameActive = true;
+        score = 0;
+        timeLeft = 30;
+
+        document.getElementById("game-score").textContent = score;
+        document.getElementById("game-timer").textContent = `${timeLeft}s`;
+        document.getElementById("game-start-screen").classList.add("hidden");
+
+        // Bersihkan ubur-ubur lama jika ada
+        document.getElementById("jellyfish-container").innerHTML = "";
+
+        // Jalankan Timer
+        gameInterval = setInterval(() => {
+          timeLeft--;
+          document.getElementById("game-timer").textContent = `${timeLeft}s`;
+
+          if (timeLeft <= 0) {
+            endGame();
+          }
+        }, 1000);
+
+        // Spawn ubur-ubur secara berkala
+        spawnJellyfish(); // Spawn pertama langsung
+        spawnInterval = setInterval(spawnJellyfish, 800);
+      }
+
+      function spawnJellyfish() {
+        if (!gameActive) return;
+
+        const container = document.getElementById("jellyfish-container");
+        const jellyfish = document.createElement("div");
+
+        // Gaya visual ubur-ubur (menggunakan unicode pink glowy)
+        jellyfish.className =
+          "absolute text-4xl cursor-pointer select-none transition-all duration-300 transform hover:scale-125 z-10";
+        jellyfish.innerHTML = "🪼";
+
+        // Letak awal acak
+        const startX = Math.random() * (container.clientWidth - 40);
+        const startY = container.clientHeight + 20; // Mulai dari dasar game area
+
+        jellyfish.style.left = `${startX}px`;
+        jellyfish.style.top = `${startY}px`;
+
+        container.appendChild(jellyfish);
+
+        // Gerakan melayang ke atas acak
+        const speed = Math.random() * 2000 + 2000; // 2s sampai 4s untuk mencapai atas
+        const targetX = startX + (Math.random() * 100 - 50); // Bergerak agak menyamping
+
+        // Animasi murni menggunakan JavaScript agar responsif
+        const anim = jellyfish.animate(
+          [
+            { top: `${startY}px`, left: `${startX}px`, opacity: 1 },
+            { top: `-50px`, left: `${targetX}px`, opacity: 0.8 },
+          ],
+          {
+            duration: speed,
+            easing: "ease-out",
+          },
+        );
+
+        // Klik ubur-ubur untuk menangkap
+        const catchJelly = (e) => {
+          e.stopPropagation();
+          if (!gameActive) return;
+
+          // Mainkan suara pop gelembung
+          playBubbleSound();
+
+          // Tambah skor
+          score += 10;
+          document.getElementById("game-score").textContent = score;
+
+          // Animasi percikan kecil saat tertangkap
+          jellyfish.innerHTML = "💥";
+          jellyfish.classList.add("pointer-events-none");
+
+          setTimeout(() => {
+            jellyfish.remove();
+          }, 150);
+        };
+
+        jellyfish.addEventListener("mousedown", catchJelly);
+        jellyfish.addEventListener("touchstart", catchJelly, { passive: true });
+
+        // Hapus ubur-ubur jika melayang keluar layar tanpa tertangkap
+        anim.onfinish = () => {
+          jellyfish.remove();
+        };
+      }
+
+      function endGame() {
+        gameActive = false;
+        clearInterval(gameInterval);
+        clearInterval(spawnInterval);
+
+        // Set Highscore baru jika tercapai
+        if (score > highscore) {
+          highscore = score;
+          document.getElementById("game-highscore").textContent = highscore;
+        }
+
+        // Tampilkan kembali layar start dengan hasil nilai
+        const startScreen = document.getElementById("game-start-screen");
+        startScreen.innerHTML = `
+                <span class="text-6xl mb-2">🏆</span>
+                <h3 class="text-2xl font-extrabold text-yellow-300 uppercase">Selesai Berburu!</h3>
+                <p class="text-lg text-white mt-1">Kamu berhasil menangkap ubur-ubur dengan skor:</p>
+                <span class="text-4xl font-extrabold text-green-300 block my-2">${score} Poin</span>
+                <p class="text-gray-300 text-sm mb-6">Pencapaian Terbaikmu: ${highscore} Poin</p>
+                <button onclick="startGame()" class="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-extrabold px-8 py-3 rounded-2xl text-lg shadow-lg border-b-4 border-yellow-600 transition active:scale-95">
+                    Main Lagi!
+                </button>
+            `;
+        startScreen.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>
